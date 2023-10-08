@@ -18,17 +18,22 @@ public class Todo {
             createList(todo);
             menu(todo);
         }else{
+            //db was here 1
+            dB = new Database(todo);
+
             System.out.println("\nMenu sys: \n1=View Items \n2=Delete Items \n3=Add items ");
             System.out.println();
             System.out.println("Number of items in List: " + calculatedSize(todo));
 
-            //add to DB here
-            dB = new Database(todo);
+            //db was here 1
+            //dB = new Database(todo);
 
             int choice = scan.nextInt();
             switch(choice){
                 case 1:
                     viewItems(todo);
+                    //add to DB here
+
                     menu(todo);
                     break;
                 case 2:
@@ -104,7 +109,7 @@ public class Todo {
 
         if(item.containsKey(num)){
             System.out.println("item removed: " + item.remove(num));
-            dB.deleteFromDB(item, num);
+            dB.deleteFromDB(num);
             viewItems(item);
         }
         else{

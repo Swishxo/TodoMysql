@@ -52,10 +52,10 @@ public class Database {
         System.out.println("Current items in DataBase!");
 
         System.out.println("Id: " + iE.getId());
-        closeDB();
+        //removed closeDB
     }
 
-    public void deleteFromDB(HashMap<Integer, String> todo, int id){
+    public void deleteFromDB(int id){
 
         entityManager.getTransaction().begin();
 
@@ -67,6 +67,7 @@ public class Database {
                 entityManager.getTransaction( ).commit( );
             }
         }
+        closeDB();
         viewDB();
     }
 
